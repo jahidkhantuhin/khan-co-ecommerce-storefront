@@ -1,61 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Amazon Project</title>
-
-    <!-- This code is needed for responsive design to work.
-      (Responsive design = make the website look good on
-      smaller screen sizes like a phone or a tablet). -->
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Load a font called Roboto from Google Fonts. -->
+    <meta name="theme-color" content="#183c32">
+    <meta name="description" content="Thoughtful finds for a home and life well lived. Discover everyday essentials and little luxuries at Nova Market.">
+    <title>Nova Market — Good things, thoughtfully found</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Here are the CSS files for this page. -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/shared/general.css">
     <link rel="stylesheet" href="styles/shared/amazon-header.css">
     <link rel="stylesheet" href="styles/pages/amazon.css">
   </head>
   <body>
-    <div class="amazon-header">
+    <div class="announcement-bar">
+      <span>Small joys, better days.</span>
+      <span class="announcement-divider" aria-hidden="true">✦</span>
+      <span>Complimentary shipping on orders over $50</span>
+    </div>
+    <header class="amazon-header">
       <div class="amazon-header-left-section">
-        <a href="amazon.html" class="header-link">
-          <img class="amazon-logo"
-            src="images/amazon-logo-white.png">
-          <img class="amazon-mobile-logo"
-            src="images/amazon-mobile-logo-white.png">
+        <a href="amazon.html" class="header-link brand-link" aria-label="Nova Market home">
+          <span class="brand-mark" aria-hidden="true">n</span>
+          <span class="brand-name">nova<span>market</span></span>
         </a>
       </div>
-
       <div class="amazon-header-middle-section">
-        <input class="search-bar" type="text" placeholder="Search">
-
-        <button class="search-button">
-          <img class="search-icon" src="images/icons/search-icon.png">
-        </button>
+        <form class="search-form" action="amazon.html" role="search">
+          <label class="visually-hidden" for="store-search">Search Nova Market</label>
+          <input class="search-bar" id="store-search" name="q" type="search" placeholder="Search for something lovely..." autocomplete="off">
+          <button class="search-button" type="submit" aria-label="Search">
+            <img class="search-icon" src="images/icons/search-icon.png" alt="">
+          </button>
+        </form>
       </div>
-
-      <div class="amazon-header-right-section">
+      <nav class="amazon-header-right-section" aria-label="Account and shopping">
         <a class="orders-link header-link" href="orders.html">
-          <span class="returns-text">Returns</span>
-          <span class="orders-text">& Orders</span>
+          <span class="returns-text">Good to see you</span>
+          <span class="orders-text">Your orders</span>
         </a>
-
-        <a class="cart-link header-link" href="checkout.html">
-          <img class="cart-icon" src="images/icons/cart-icon.png">
-          <div class="cart-quantity js-cart-quantity">0</div>
-          <div class="cart-text">Cart</div>
+        <a class="cart-link header-link" href="checkout.html" aria-label="Shopping bag">
+          <span class="cart-icon" aria-hidden="true">♡</span>
+          <span class="cart-quantity js-cart-quantity" aria-live="polite">0</span>
+          <span class="cart-text">Bag</span>
         </a>
-      </div>
-    </div>
+      </nav>
+    </header>
 
-    <div class="main">
-      <div class="products-grid js-products-grid">
-      </div>
-    </div>
+    <main class="store-main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> A little more lovely, every day</p>
+          <h1 id="hero-title">Good things,<br><em>thoughtfully found.</em></h1>
+          <p class="hero-description">Considered essentials and everyday favorites for the home you love and the life you live.</p>
+          <a class="hero-cta" href="#shop">Explore the collection <span aria-hidden="true">↗</span></a>
+          <div class="hero-note">
+            <span class="hero-note-mark" aria-hidden="true">✳</span>
+            <span>Curated with care.<br><strong>Made for real life.</strong></span>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="A curated selection of home and everyday finds">
+          <div class="hero-art-orbit"></div>
+          <div class="hero-image-frame">
+            <img src="images/products/floral-mixing-bowl-set.jpg" alt="Floral mixing bowl set with lids">
+          </div>
+          <div class="hero-sticker"><span>FIND<br>YOUR<br>FAVORITE</span><span class="sticker-star" aria-hidden="true">✳</span></div>
+          <p class="hero-art-caption">Everyday pieces<br>with a little extra.</p>
+        </div>
+      </section>
 
+      <section class="benefit-strip" aria-label="Shopping benefits">
+        <div><span class="benefit-icon" aria-hidden="true">✳</span><span><strong>Thoughtful picks</strong><small>Chosen for everyday living</small></span></div>
+        <div><span class="benefit-icon" aria-hidden="true">♡</span><span><strong>Made to delight</strong><small>Little details, big difference</small></span></div>
+        <div><span class="benefit-icon" aria-hidden="true">↗</span><span><strong>Easy, always</strong><small>Simple shopping, happy days</small></span></div>
+      </section>
+
+      <section class="shop-section" id="shop" aria-labelledby="shop-title">
+        <div class="shop-heading">
+          <div>
+            <p class="eyebrow">The good stuff</p>
+            <h2 id="shop-title">Find your <em>everyday favorite.</em></h2>
+          </div>
+          <p class="shop-intro">Useful things, beautiful details, and a few surprises along the way.</p>
+        </div>
+        <div class="shop-controls">
+          <div class="category-filters" role="group" aria-label="Filter products by category">
+            <button class="category-filter is-active" type="button" data-category="all" aria-pressed="true">Everything</button>
+            <button class="category-filter" type="button" data-category="kitchen" aria-pressed="false">Kitchen &amp; dining</button>
+            <button class="category-filter" type="button" data-category="apparel" aria-pressed="false">Style</button>
+            <button class="category-filter" type="button" data-category="home" aria-pressed="false">Home</button>
+            <button class="category-filter" type="button" data-category="footwear" aria-pressed="false">Shoes &amp; more</button>
+          </div>
+          <p class="results-count" aria-live="polite"><span class="js-product-count">0</span> lovely finds</p>
+        </div>
+        <div class="products-grid js-products-grid"></div>
+        <p class="empty-results js-empty-results" hidden>No finds just yet. Try another search or category.</p>
+      </section>
+    </main>
+
+    <footer class="store-footer">
+      <a href="amazon.html" class="footer-brand"><span class="brand-mark" aria-hidden="true">n</span> nova market</a>
+      <p>Good things for the everyday.</p>
+      <a href="#shop">Back to the good stuff ↑</a>
+    </footer>
     <script type="module" src="scripts/amazon.js"></script>
   </body>
 </html>

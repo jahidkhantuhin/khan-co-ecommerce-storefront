@@ -1,81 +1,138 @@
 .main {
-  max-width: 850px;
-  margin-top: 90px;
-  margin-bottom: 100px;
-  padding-left: 30px;
-  padding-right: 30px;
+  max-width: 1010px;
+  margin: 0 auto;
+  padding: 45px 28px 90px;
+}
 
-  /* margin-left: auto;
-     margin-right auto;
-     Is a trick for centering an element horizontally
-     without needing a container. */
-  margin-left: auto;
-  margin-right: auto;
+.order-tracking {
+  padding: 31px 35px 36px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 7px;
 }
 
 .back-to-orders-link {
   display: inline-block;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
+  color: #64746a;
+  font-size: 11px;
+  text-decoration: none;
+}
+
+.tracking-eyebrow {
+  margin-bottom: 5px;
+  color: #b77257;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
 .delivery-date {
-  font-size: 25px;
+  margin: 0 0 8px;
+  color: var(--forest);
+  font-family: var(--serif);
+  font-size: clamp(25px, 4vw, 36px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+.tracking-product-name,
+.order-tracking > .product-info:not(.tracking-product-name) {
+  display: none;
+}
+
+.tracking-product-card {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  width: fit-content;
+  margin: 19px 0 28px;
+  padding: 12px 18px 12px 12px;
+  background: #f5f3ed;
+}
+
+.tracking-product-card .product-image {
+  width: 78px;
+  height: 78px;
+  margin: 0;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.tracking-product-card strong,
+.tracking-product-card small,
+.tracking-product-label {
+  display: block;
+}
+
+.tracking-product-card strong {
+  margin: 3px 0;
+  color: #3c4a41;
+  font-size: 12px;
+}
+
+.tracking-product-card small {
+  color: #7e887f;
+  font-size: 10px;
+}
+
+.tracking-product-label {
+  color: #b77257;
+  font-size: 8px;
   font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.product-info {
-  margin-bottom: 3px;
-}
-
-.product-image {
-  max-width: 150px;
-  max-height: 150px;
-  margin-top: 25px;
-  margin-bottom: 50px;
+  letter-spacing: 0.12em;
 }
 
 .progress-labels-container {
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 15px;
+  margin-bottom: 11px;
+  color: #7f8980;
+  font-size: 11px;
 }
 
-.current-status {
-  color: rgb(6, 125, 98);
+.progress-label {
+  position: relative;
 }
 
-@media (max-width: 575px) {
-  .progress-labels-container {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 450px) {
-  .progress-labels-container {
-    flex-direction: column;
-    margin-bottom: 5px;
-  }
-
-  .progress-label {
-    margin-bottom: 3px;
-  }
+.progress-label.current-status {
+  color: #39705c;
+  font-weight: 700;
 }
 
 .progress-bar-container {
-  height: 25px;
-  width: 100%;
-
-  border: 1px solid rgb(200, 200, 200);
-  border-radius: 50px;
+  height: 8px;
   overflow: hidden;
+  background: #eaece6;
+  border-radius: 30px;
 }
 
 .progress-bar {
+  width: 57%;
   height: 100%;
-  background-color: green;
-  border-radius: 50px;
-  width: 50%;
+  background: #51836d;
+  border-radius: inherit;
+}
+
+@media (max-width: 575px) {
+  .main {
+    padding: 28px 15px 55px;
+  }
+
+  .order-tracking {
+    padding: 22px 18px 25px;
+  }
+}
+
+@media (max-width: 380px) {
+  .tracking-product-card {
+    gap: 10px;
+    padding-right: 10px;
+  }
+
+  .tracking-product-card .product-image {
+    width: 62px;
+    height: 62px;
+  }
 }

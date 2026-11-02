@@ -1,211 +1,310 @@
 .main {
-  max-width: 1100px;
-  padding-left: 30px;
-  padding-right: 30px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 46px 28px 90px;
+}
 
-  margin-top: 140px;
-  margin-bottom: 100px;
+.checkout-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 27px;
+}
 
-  /* margin-left: auto;
-     margin-right auto;
-     Is a trick for centering an element horizontally
-     without needing a container. */
-  margin-left: auto;
-  margin-right: auto;
+.checkout-heading .eyebrow {
+  margin-bottom: 5px;
+  color: #b77257;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
 .page-title {
-  font-weight: 700;
-  font-size: 22px;
-  margin-bottom: 18px;
+  margin: 0;
+  color: var(--forest);
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+.return-to-home-link {
+  color: #768178;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.return-to-home-link:hover {
+  color: var(--forest);
 }
 
 .checkout-grid {
   display: grid;
-  /* Here, 1fr means the first column will take
-     up the remaining space in the grid. */
-  grid-template-columns: 1fr 350px;
-  column-gap: 12px;
-
-  /* Use align-items: start; to prevent the elements
-     in the grid from stretching vertically. */
+  grid-template-columns: minmax(0, 1fr) 340px;
   align-items: start;
-}
-
-@media (max-width: 1000px) {
-  .main {
-    max-width: 500px;
-  }
-
-  .checkout-grid {
-    grid-template-columns: 1fr;
-  }
+  gap: 22px;
 }
 
 .cart-item-container,
 .payment-summary {
-  border: 1px solid rgb(222, 222, 222);
-  border-radius: 4px;
-  padding: 18px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 7px;
 }
 
 .cart-item-container {
-  margin-bottom: 12px;
-}
-
-.payment-summary {
-  padding-bottom: 5px;
-}
-
-@media (max-width: 1000px) {
-  .payment-summary {
-    /* grid-row: 1 means this element will be placed into row
-      1 in the grid. (Normally, the row that an element is
-      placed in is determined by the order of the elements in
-      the HTML. grid-row overrides this default ordering). */
-    grid-row: 1;
-    margin-bottom: 12px;
-  }
+  margin-bottom: 14px;
 }
 
 .delivery-date {
-  color: rgb(0, 118, 0);
+  margin: 2px 0 17px;
+  color: #3d715b;
+  font-size: 13px;
   font-weight: 700;
-  font-size: 19px;
-  margin-top: 5px;
-  margin-bottom: 22px;
 }
 
 .cart-item-details-grid {
   display: grid;
-  /* 100px 1fr 1fr; means the 2nd and 3rd column will
-     take up half the remaining space in the grid
-     (they will divide up the remaining space evenly). */
-  grid-template-columns: 100px 1fr 1fr;
-  column-gap: 25px;
+  grid-template-columns: 104px minmax(150px, 1fr) minmax(175px, 0.85fr);
+  align-items: start;
+  gap: 18px;
 }
 
-@media (max-width: 1000px) {
-  .cart-item-details-grid {
-    grid-template-columns: 100px 1fr;
-    row-gap: 30px;
-  }
-}
-
-.product-image {
-  max-width: 100%;
+.cart-item-details-grid > .product-image {
+  width: 100%;
   max-height: 120px;
-
-  /* margin-left: auto;
-     margin-right auto;
-     Is a trick for centering an element horizontally
-     without needing a container. */
-  margin-left: auto;
-  margin-right: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
 }
 
 .product-name {
+  margin-bottom: 7px;
+  color: #34443b;
+  font-size: 13px;
   font-weight: 700;
-  margin-bottom: 8px;
+  line-height: 1.5;
 }
 
 .product-price {
-  color: rgb(177, 39, 4);
+  margin-bottom: 8px;
+  color: var(--forest);
+  font-size: 14px;
   font-weight: 700;
-  margin-bottom: 5px;
 }
 
-.product-quantity .link-primary {
-  margin-left: 3px;
+.product-quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #707b72;
+  font-size: 11px;
 }
 
-@media (max-width: 1000px) {
-  .delivery-options {
-    /* grid-column: 1 means this element will be placed
-       in column 1 in the grid. (Normally, the column that
-       an element is placed in is determined by the order
-       of the elements in the HTML. grid-column overrides
-       this default ordering).
-       
-       / span 2 means this element will take up 2 columns
-       in the grid (Normally, each element takes up 1
-       column in the grid). */
-    grid-column: 1 / span 2;
-  }
+.quantity-editor {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.quantity-editor select {
+  padding: 2px 5px;
+  font-size: 10px;
+}
+
+.delete-quantity-link {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  font-size: 10px;
 }
 
 .delivery-options-title {
+  margin-bottom: 11px;
+  color: #435247;
+  font-size: 11px;
   font-weight: 700;
-  margin-bottom: 10px;
 }
 
 .delivery-option {
   display: grid;
-  grid-template-columns: 24px 1fr;
-  margin-bottom: 12px;
+  grid-template-columns: 20px 1fr;
+  gap: 5px;
+  margin-bottom: 10px;
   cursor: pointer;
 }
 
 .delivery-option-input {
-  margin-left: 0px;
+  margin: 2px 0 0;
+  accent-color: var(--forest);
   cursor: pointer;
 }
 
 .delivery-option-date {
-  color: rgb(0, 118, 0);
-  font-weight: 500;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
+  color: #3d715b;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .delivery-option-price {
-  color: rgb(120, 120, 120);
-  font-size: 15px;
+  color: #8a928b;
+  font-size: 10px;
+}
+
+.payment-summary {
+  position: sticky;
+  top: 96px;
+  padding: 22px;
 }
 
 .payment-summary-title {
-  font-weight: 700;
-  font-size: 18px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  color: var(--forest);
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .payment-summary-row {
   display: grid;
-  /* 1fr auto; means the width of the 2nd column will be
-     determined by the elements inside the column (auto).
-     The 1st column will take up the remaining space. */
   grid-template-columns: 1fr auto;
-
-  font-size: 15px;
-  margin-bottom: 9px;
+  gap: 10px;
+  margin-bottom: 11px;
+  color: #707b72;
+  font-size: 12px;
 }
 
 .payment-summary-money {
+  color: #38483e;
   text-align: right;
 }
 
-.subtotal-row .payment-summary-money {
-  border-top: 1px solid rgb(222, 222, 222);
-}
-
-.subtotal-row div {
-  padding-top: 9px;
+.subtotal-row {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
 }
 
 .total-row {
-  color: rgb(177, 39, 4);
+  margin-top: 14px;
+  padding-top: 14px;
+  color: var(--forest);
+  border-top: 1px solid var(--line);
+  font-size: 15px;
   font-weight: 700;
-  font-size: 18px;
+}
 
-  border-top: 1px solid rgb(222, 222, 222);
-  padding-top: 18px;
+.total-row .payment-summary-money {
+  color: var(--forest);
 }
 
 .place-order-button {
   width: 100%;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  border-radius: 8px;
+  margin: 16px 0 10px;
+  padding: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
 
-  margin-top: 11px;
-  margin-bottom: 15px;
+.place-order-button:disabled {
+  color: #78827b;
+  background: #e7e9e3;
+  border-color: #e7e9e3;
+  cursor: not-allowed;
+}
+
+.empty-cart {
+  padding: 52px 25px;
+  background: #fff;
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.empty-cart-icon {
+  color: #bb795d;
+  font-size: 36px;
+}
+
+.empty-cart h2 {
+  margin: 10px 0 7px;
+  color: var(--forest);
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 500;
+}
+
+.empty-cart p {
+  color: #78827b;
+  font-size: 12px;
+}
+
+.empty-cart-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 11px 16px;
+  font-size: 11px;
+  text-decoration: none;
+}
+
+.payment-summary::after {
+  display: block;
+  color: #899188;
+  content: "A few thoughtful things, on their way to you.";
+  font-size: 10px;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-summary {
+    position: static;
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .main {
+    padding: 32px 16px 65px;
+  }
+
+  .checkout-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+
+  .cart-item-container,
+  .payment-summary {
+    padding: 15px;
+  }
+
+  .cart-item-details-grid {
+    grid-template-columns: 78px 1fr;
+    gap: 12px;
+  }
+
+  .delivery-options {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 380px) {
+  .cart-item-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-item-details-grid > .product-image {
+    width: 100px;
+    justify-self: center;
+  }
 }

@@ -1,7 +1,6 @@
-import { cart, removeFromCart, updateDeliveryOption } from "../../data/cart.js";
-import { products, getProduct } from "../../data/products.js";
+import { cart, removeFromCart, updateDeliveryOption, updateQuantity } from "../../data/cart.js";
+import { getProduct } from "../../data/products.js";
 import { formatCurrency } from "../utils/money.js";
-import { hello } from "https://unpkg.com/supersimpledev@1.0.1/hello.esm.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.19/esm/index.js";
 import {
   deliveryOptions,
@@ -11,6 +10,18 @@ import { renderPaymentSummary } from "./paymentSummary.js";
 
 export function renderOrderSummary() {
   let cartSummaryHTML = "";
+
+  if (cart.length === 0) {
+    document.querySelector(".js-order-summary").innerHTML = `
+      <div class="empty-cart">
+        <span class="empty-cart-icon" aria-hidden="true">♡</span>
+        <h2>Your bag is taking a little breather.</h2>
+        <p>Find something lovely to make it feel at home.</p>
+        <a class="button-primary empty-cart-link" href="amazon.html">Explore the collection</a>
+      </div>
+    `;
+    return;
+  }
 
   cart.forEach((cartItem) => {
     const productId = cartItem.productId;
@@ -35,7 +46,7 @@ export function renderOrderSummary() {
 
         <div class="cart-item-details-grid">
           <img class="product-image"
-            src="${matchingProduct.image}">
+            src="${matchingProduct.image}" alt="${matchingProduct.name}">
 
           <div class="cart-item-details">
             <div class="product-name">
@@ -46,15 +57,19 @@ export function renderOrderSummary() {
             </div>
             <div class="product-quantity
             js-product-quantity-${matchingProduct.id}">
-              <span>
-                Quantity: <span class="quantity-label">${cartItem.quantity}</span>
-              </span>
-              <span class="update-quantity-link link-primary">
-                Update
-              </span>
-              <span class="delete-quantity-link link-primary js-delete-link js-delete-link-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
+            <span>Quantity: <span class="quantity-label">${cartItem.quantity}</span></span>
+            <label class="quantity-editor">
+              <span class="visually-hidden">Change quantity</span>
+                <select class="js-update-quantity" aria-label="Quantity of ${matchingProduct.name}" data-product-id="${matchingProduct.id}">
+                  ${Array.from({ length: 10 }, (_, index) => {
+                    const quantity = index + 1;
+                    return `<option value="${quantity}" ${quantity === cartItem.quantity ? "selected" : ""}>${quantity}</option>`;
+                  }).join("")}
+                </select>
+              </label>
+              <button type="button" class="delete-quantity-link link-primary js-delete-link js-delete-link-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
                 Delete
-              </span>
+              </button>
             </div>
           </div>
 
@@ -113,12 +128,15 @@ export function renderOrderSummary() {
     link.addEventListener("click", () => {
       const productId = link.dataset.productId;
       removeFromCart(productId);
+      renderOrderSummary();
+      renderPaymentSummary();
+    });
+  });
 
-      const container = document.querySelector(
-        `.js-cart-item-container-${productId}`,
-      );
-      container.remove();
-
+  document.querySelectorAll(".js-update-quantity").forEach((select) => {
+    select.addEventListener("change", () => {
+      updateQuantity(select.dataset.productId, Number(select.value));
+      renderOrderSummary();
       renderPaymentSummary();
     });
   });

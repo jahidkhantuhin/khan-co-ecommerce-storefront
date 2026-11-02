@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Orders</title>
-
-    <!-- This code is needed for responsive design to work.
-      (Responsive design = make the website look good on
-      smaller screen sizes like a phone or a tablet). -->
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Load a font called Roboto from Google Fonts. -->
+    <meta name="theme-color" content="#183c32">
+    <title>Your orders — Nova Market</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Here are the CSS files for this page. -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/shared/general.css">
     <link rel="stylesheet" href="styles/shared/amazon-header.css">
     <link rel="stylesheet" href="styles/pages/orders.css">
@@ -22,37 +16,40 @@
     <div class="amazon-header">
       <div class="amazon-header-left-section">
         <a href="amazon.html" class="header-link">
-          <img class="amazon-logo"
-            src="images/amazon-logo-white.png">
-          <img class="amazon-mobile-logo"
-            src="images/amazon-mobile-logo-white.png">
+          <span class="brand-mark" aria-hidden="true">n</span>
+          <span class="brand-name">nova<span>market</span></span>
         </a>
       </div>
 
       <div class="amazon-header-middle-section">
-        <input class="search-bar" type="text" placeholder="Search">
-
-        <button class="search-button">
-          <img class="search-icon" src="images/icons/search-icon.png">
-        </button>
+        <form class="search-form" action="amazon.html" role="search">
+          <label class="visually-hidden" for="orders-search">Search Nova Market</label>
+          <input class="search-bar" id="orders-search" name="q" type="search" placeholder="Search for something lovely...">
+          <button class="search-button" type="submit" aria-label="Search">
+            <img class="search-icon" src="images/icons/search-icon.png" alt="">
+          </button>
+        </form>
       </div>
 
       <div class="amazon-header-right-section">
         <a class="orders-link header-link" href="orders.html">
-          <span class="returns-text">Returns</span>
-          <span class="orders-text">& Orders</span>
+          <span class="returns-text">Good to see you</span>
+          <span class="orders-text">Your orders</span>
         </a>
 
         <a class="cart-link header-link" href="checkout.html">
-          <img class="cart-icon" src="images/icons/cart-icon.png">
-          <div class="cart-quantity">3</div>
-          <div class="cart-text">Cart</div>
+          <span class="cart-icon" aria-hidden="true">♡</span>
+          <span class="cart-quantity js-cart-quantity">0</span>
+          <span class="cart-text">Bag</span>
         </a>
       </div>
     </div>
 
     <div class="main">
-      <div class="page-title">Your Orders</div>
+      <div class="orders-heading">
+        <p class="eyebrow">Good to see you again</p>
+        <h1 class="page-title">Your orders</h1>
+      </div>
 
       <div class="orders-grid">
         <div class="order-container">
@@ -77,7 +74,7 @@
 
           <div class="order-details-grid">
             <div class="product-image-container">
-              <img src="images/products/athletic-cotton-socks-6-pairs.jpg">
+              <img src="images/products/athletic-cotton-socks-6-pairs.jpg" alt="Black and gray athletic cotton socks">
             </div>
 
             <div class="product-details">
@@ -90,22 +87,18 @@
               <div class="product-quantity">
                 Quantity: 1
               </div>
-              <button class="buy-again-button button-primary">
-                <img class="buy-again-icon" src="images/icons/buy-again.png">
+              <button class="buy-again-button button-primary js-buy-again" data-product-id="e43638ce-6aa0-4b85-b27f-e1d07eb678c6">
+                <img class="buy-again-icon" src="images/icons/buy-again.png" alt="">
                 <span class="buy-again-message">Buy it again</span>
               </button>
             </div>
 
             <div class="product-actions">
-              <a href="tracking.html">
-                <button class="track-package-button button-secondary">
-                  Track package
-                </button>
-              </a>
+              <a class="track-package-button button-secondary" href="tracking.html">Track package</a>
             </div>
 
             <div class="product-image-container">
-              <img src="images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg">
+              <img src="images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg" alt="Teal cotton t-shirts, 2 pack">
             </div>
 
             <div class="product-details">
@@ -118,18 +111,14 @@
               <div class="product-quantity">
                 Quantity: 2
               </div>
-              <button class="buy-again-button button-primary">
-                <img class="buy-again-icon" src="images/icons/buy-again.png">
+              <button class="buy-again-button button-primary js-buy-again" data-product-id="83d4ca15-0f35-48f5-b7a3-1ea210004f2e">
+                <img class="buy-again-icon" src="images/icons/buy-again.png" alt="">
                 <span class="buy-again-message">Buy it again</span>
               </button>
             </div>
 
             <div class="product-actions">
-              <a href="tracking.html">
-                <button class="track-package-button button-secondary">
-                  Track package
-                </button>
-              </a>
+              <a class="track-package-button button-secondary" href="tracking.html">Track package</a>
             </div>
           </div>
         </div>
@@ -156,7 +145,7 @@
 
           <div class="order-details-grid">
             <div class="product-image-container">
-              <img src="images/products/intermediate-composite-basketball.jpg">
+              <img src="images/products/intermediate-composite-basketball.jpg" alt="Intermediate size basketball">
             </div>
 
             <div class="product-details">
@@ -169,22 +158,19 @@
               <div class="product-quantity">
                 Quantity: 2
               </div>
-              <button class="buy-again-button button-primary">
-                <img class="buy-again-icon" src="images/icons/buy-again.png">
+              <button class="buy-again-button button-primary js-buy-again" data-product-id="15b6fc6f-327a-4ec4-896f-486349e85a3d">
+                <img class="buy-again-icon" src="images/icons/buy-again.png" alt="">
                 <span class="buy-again-message">Buy it again</span>
               </button>
             </div>
 
             <div class="product-actions">
-              <a href="tracking.html">
-                <button class="track-package-button button-secondary">
-                  Track package
-                </button>
-              </a>
+              <a class="track-package-button button-secondary" href="tracking.html">Track package</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <script type="module" src="scripts/orders.js"></script>
   </body>
 </html>
