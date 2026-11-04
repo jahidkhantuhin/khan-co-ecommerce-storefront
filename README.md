@@ -1,6 +1,6 @@
-# Nova Market
+# Khan & Co. — E-Commerce Storefront
 
-A responsive, front-end ecommerce storefront built with HTML, CSS, and vanilla JavaScript. Browse a curated product catalog, search or filter items, manage a shopping bag, review delivery options, and explore sample order and tracking pages.
+A polished, responsive ecommerce storefront built with HTML, CSS, and vanilla JavaScript. This GitHub showcase demonstrates a complete shopping flow—from product discovery to checkout, order history, and delivery tracking—without a framework.
 
 > **Demo project:** This is a browser-only storefront. It does not connect to a real inventory, payment provider, account system, or order-processing backend.
 
