@@ -85,3 +85,7 @@ The cart is stored under the `cart` key in the browser’s local storage and is 
 ## Customizing the catalog
 
 Edit the `products` array in `data/products.js` to update product names, images, prices, ratings, or keywords. Product images are stored in `images/products/`. Catalog search matches product names and keywords; category filters derive their categories from the product keywords.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
